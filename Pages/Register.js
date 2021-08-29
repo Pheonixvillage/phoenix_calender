@@ -19,10 +19,11 @@ import {
 
 
 
-export default function Login({ route, navigation }){
+export default function Register({ route, navigation }){
     console.log(route.params)
     const [useremail, setUseremail] = useState("");
     const [userpass, setUserpass] = useState("");
+    const [username, setUsername] = useState("");
     //route.params.pages()
     return(
         <SafeAreaView style={styles.container}>
@@ -38,14 +39,18 @@ export default function Login({ route, navigation }){
                 secureTextEntry={true}
                 onChangeText={pass => setUserpass(pass)}
             />
+            <TextInput
+                style={{ height: 55, borderColor: 'black', borderWidth: 1 , width: '90%', marginTop: 30, textAlign: 'center', fontSize: 20}}
+                onChangeText={name => setUsername(name)}
+            />
 
             <TouchableOpacity activeOpacity={0.1}  style={{ height: 55, borderColor: 'black', borderWidth: 1 , width: '90%', marginTop: 30, alignItems: 'center', justifyContent: 'center'}}
             onPress={() => {route.params.start_login(useremail, userpass)}} >
-                <Text style={{fontSize: 20}}>Login and start</Text>
+                <Text style={{fontSize: 20}}>Register and start</Text>
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={0.1}  style={{ height: 55, borderColor: 'black', borderWidth: 0 , width: '90%', marginTop: 30, alignItems: 'center', justifyContent: 'center'}}
-            onPress={() => {route.params.setPage("Register")}} >
-                <Text style={{fontSize: 10}}>Or Register</Text>
+            onPress={() => {route.params.setPage("Login")}} >
+                <Text style={{fontSize: 10}}>Or Login</Text>
             </TouchableOpacity>
 
         </SafeAreaView>

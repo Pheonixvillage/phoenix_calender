@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView  } from 'react-native';
 
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import {LocaleConfig} from 'react-native-calendars';
@@ -14,9 +14,9 @@ LocaleConfig.locales['fr'] = {
 };
 LocaleConfig.defaultLocale = 'fr';
 
-export default function App() {
+export default function Calender() {
   return (
-    <View style={{ paddingTop: 50, flex: 1 }}>
+    <SafeAreaView style={{flex: 1, backgroundColor: 'white' }}>
         <Calendar
         // Initially visible month. Default = Date()
 
@@ -62,7 +62,7 @@ export default function App() {
     '2021-08-07': {selected: false, endingDay: true, color: 'green'},
   }}
         />
-      </View>
+      </SafeAreaView>
   );
 }
 
